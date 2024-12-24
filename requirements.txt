@@ -1,5 +1,5 @@
 ansible
 ansible-pylibssh
 paramiko
-pyats
-genie
+pyats[full]
+virl2_client

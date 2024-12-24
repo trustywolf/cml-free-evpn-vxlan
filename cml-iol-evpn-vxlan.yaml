@@ -1,0 +1,784 @@
+annotations:
+  - border_color: '#00000000'
+    border_style: ''
+    color: '#808080FF'
+    rotation: 0
+    text_bold: false
+    text_content: ''
+    text_font: monospace
+    text_italic: false
+    text_size: 12
+    text_unit: pt
+    thickness: 1
+    type: text
+    x1: -480.0
+    y1: -200.0
+    z_index: 0
+smart_annotations:
+  - tag: ansible:ansible_port=2201
+    is_on: false
+    padding: 35
+    label: ansible:ansible_port=2201
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#007A3380'
+    border_color: '#00000080'
+    z_index: 9
+  - tag: ansible:ansible_port=2202
+    is_on: false
+    padding: 35
+    label: ansible:ansible_port=2202
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#C72A2880'
+    border_color: '#00000080'
+    z_index: 10
+  - tag: ansible:ansible_port=2203
+    is_on: false
+    padding: 35
+    label: ansible:ansible_port=2203
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#D5006D80'
+    border_color: '#00000080'
+    z_index: 11
+  - tag: ansible:ansible_port=2204
+    is_on: false
+    padding: 35
+    label: ansible:ansible_port=2204
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#4B4D4F80'
+    border_color: '#00000080'
+    z_index: 12
+  - tag: ansible:ansible_port=2205
+    is_on: false
+    padding: 35
+    label: ansible:ansible_port=2205
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#005C9980'
+    border_color: '#00000080'
+    z_index: 13
+  - tag: host
+    is_on: false
+    padding: 35
+    label: host
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#B7E3D980'
+    border_color: '#00000080'
+    z_index: 3
+  - tag: leaf
+    is_on: true
+    padding: 35
+    label: leaf
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#00B14080'
+    border_color: '#00000080'
+    z_index: 2
+  - tag: pat:2201:22
+    is_on: true
+    padding: 35
+    label: pat:2201:22
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#009C8C80'
+    border_color: '#00000080'
+    z_index: 4
+  - tag: pat:2202:22
+    is_on: true
+    padding: 35
+    label: pat:2202:22
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#F16A2080'
+    border_color: '#00000080'
+    z_index: 5
+  - tag: pat:2203:22
+    is_on: true
+    padding: 35
+    label: pat:2203:22
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#A95FBE80'
+    border_color: '#00000080'
+    z_index: 6
+  - tag: pat:2204:22
+    is_on: true
+    padding: 35
+    label: pat:2204:22
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#F8A30080'
+    border_color: '#00000080'
+    z_index: 7
+  - tag: pat:2205:22
+    is_on: true
+    padding: 35
+    label: pat:2205:22
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#FFD10080'
+    border_color: '#00000080'
+    z_index: 8
+  - tag: spine
+    is_on: true
+    padding: 35
+    label: spine
+    tag_offset_x: 0
+    tag_offset_y: 0
+    tag_size: 14
+    group_distance: 400
+    thickness: 1
+    border_style: ''
+    fill_color: '#A4C8E180'
+    border_color: '#00000080'
+    z_index: 1
+nodes:
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname S1
+          username cisco privilege 15 secret cisco123
+          !
+          vrf definition MGMT
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          no ip domain lookup
+          ip domain name lab
+          ip routing
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           description MGMT
+           no switchport
+           no cdp enable
+           vrf forwarding MGMT
+           ip address 192.168.255.201 255.255.255.0
+          !
+          no ip http server
+          no ip http secure-server
+          !
+          ip route vrf MGMT 0.0.0.0 0.0.0.0 Ethernet0/0 192.168.255.1
+          !
+          line con 0
+           logging synchronous
+          line aux 0
+          line vty 0 4
+           logging synchronous
+           login local
+           transport input ssh
+           crypto key generate rsa modulus 2048
+           ip ssh version 2
+           do write memory
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: S1
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags:
+      - spine
+      - pat:2201:22
+      - ansible:ansible_port=2201
+    x: -200
+    y: -160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        slot: 0
+        type: physical
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        slot: 1
+        type: physical
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        slot: 2
+        type: physical
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname S2
+          username cisco privilege 15 secret cisco123
+          !
+          vrf definition MGMT
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          no ip domain lookup
+          ip domain name lab
+          ip routing
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           description MGMT
+           no switchport
+           no cdp enable
+           vrf forwarding MGMT
+           ip address 192.168.255.202 255.255.255.0
+          !
+          no ip http server
+          no ip http secure-server
+          !
+          ip route vrf MGMT 0.0.0.0 0.0.0.0 Ethernet0/0 192.168.255.1
+          !
+          line con 0
+           logging synchronous
+          line aux 0
+          line vty 0 4
+           logging synchronous
+           login local
+           transport input ssh
+           crypto key generate rsa modulus 2048
+           ip ssh version 2
+           do write memory
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: S2
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags:
+      - spine
+      - pat:2202:22
+      - ansible:ansible_port=2202
+    x: -40
+    y: -160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        slot: 0
+        type: physical
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        slot: 1
+        type: physical
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        slot: 2
+        type: physical
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname L1
+          username cisco privilege 15 secret cisco123
+          !
+          vrf definition MGMT
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          no ip domain lookup
+          ip domain name lab
+          ip routing
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           description MGMT
+           no switchport
+           no cdp enable
+           vrf forwarding MGMT
+           ip address 192.168.255.203 255.255.255.0
+          !
+          no ip http server
+          no ip http secure-server
+          !
+          ip route vrf MGMT 0.0.0.0 0.0.0.0 Ethernet0/0 192.168.255.1
+          !
+          line con 0
+           logging synchronous
+          line aux 0
+          line vty 0 4
+           logging synchronous
+           login local
+           transport input ssh
+           crypto key generate rsa modulus 2048
+           ip ssh version 2
+           do write memory
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: L1
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags:
+      - leaf
+      - pat:2203:22
+      - ansible:ansible_port=2203
+    x: -200
+    y: 0
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        slot: 0
+        type: physical
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        slot: 1
+        type: physical
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        slot: 2
+        type: physical
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname L2
+          username cisco privilege 15 secret cisco123
+          !
+          vrf definition MGMT
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          no ip domain lookup
+          ip domain name lab
+          ip routing
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           description MGMT
+           no switchport
+           no cdp enable
+           vrf forwarding MGMT
+           ip address 192.168.255.204 255.255.255.0
+          !
+          no ip http server
+          no ip http secure-server
+          !
+          ip route vrf MGMT 0.0.0.0 0.0.0.0 Ethernet0/0 192.168.255.1
+          !
+          line con 0
+           logging synchronous
+          line aux 0
+          line vty 0 4
+           logging synchronous
+           login local
+           transport input ssh
+           crypto key generate rsa modulus 2048
+           ip ssh version 2
+           do write memory
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: null
+    label: L2
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags:
+      - leaf
+      - pat:2204:22
+      - ansible:ansible_port=2204
+    x: -40
+    y: 0
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        slot: 0
+        type: physical
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        slot: 1
+        type: physical
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        slot: 2
+        type: physical
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          hostname H
+          username cisco privilege 15 secret cisco123
+          !
+          vrf definition MGMT
+           !
+           address-family ipv4
+           exit-address-family
+           !
+           address-family ipv6
+           exit-address-family
+          !
+          no ip domain lookup
+          ip domain name lab
+          ip routing
+          ip cef
+          ipv6 unicast-routing
+          ipv6 cef
+          !
+          interface Ethernet0/0
+           description MGMT
+           no switchport
+           no cdp enable
+           vrf forwarding MGMT
+           ip address 192.168.255.205 255.255.255.0
+          !
+          no ip http server
+          no ip http secure-server
+          !
+          ip route vrf MGMT 0.0.0.0 0.0.0.0 Ethernet0/0 192.168.255.1
+          !
+          line con 0
+           logging synchronous
+          line aux 0
+          line vty 0 4
+           logging synchronous
+           login local
+           transport input ssh
+           crypto key generate rsa modulus 2048
+           ip ssh version 2
+           do write memory
+          !
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n4
+    image_definition: null
+    label: H
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags:
+      - host
+      - pat:2205:22
+      - ansible:ansible_port=2205
+    x: -120
+    y: 160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        slot: 0
+        type: physical
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        slot: 1
+        type: physical
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        slot: 2
+        type: physical
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n5
+    image_definition: null
+    label: MGMT
+    node_definition: unmanaged_switch
+    parameters: {}
+    ram: null
+    tags: []
+    x: -360
+    y: -80
+    interfaces:
+      - id: i0
+        label: port0
+        mac_address: null
+        slot: 0
+        type: physical
+      - id: i1
+        label: port1
+        mac_address: null
+        slot: 1
+        type: physical
+      - id: i2
+        label: port2
+        mac_address: null
+        slot: 2
+        type: physical
+      - id: i3
+        label: port3
+        mac_address: null
+        slot: 3
+        type: physical
+      - id: i4
+        label: port4
+        mac_address: null
+        slot: 4
+        type: physical
+      - id: i5
+        label: port5
+        mac_address: null
+        slot: 5
+        type: physical
+      - id: i6
+        label: port6
+        mac_address: null
+        slot: 6
+        type: physical
+      - id: i7
+        label: port7
+        mac_address: null
+        slot: 7
+        type: physical
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n6
+    image_definition: null
+    label: NAT
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: -520
+    y: -80
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        slot: 0
+        type: physical
+links:
+  - id: l0
+    n1: n6
+    n2: n5
+    i1: i0
+    i2: i0
+    conditioning: {}
+    label: NAT-port<->MGMT-port0
+  - id: l1
+    n1: n5
+    n2: n0
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: MGMT-port1<->S1-Ethernet0/0
+  - id: l2
+    n1: n5
+    n2: n1
+    i1: i2
+    i2: i1
+    conditioning: {}
+    label: MGMT-port2<->S2-Ethernet0/0
+  - id: l3
+    n1: n5
+    n2: n2
+    i1: i3
+    i2: i1
+    conditioning: {}
+    label: MGMT-port3<->L1-Ethernet0/0
+  - id: l4
+    n1: n5
+    n2: n3
+    i1: i4
+    i2: i1
+    conditioning: {}
+    label: MGMT-port4<->L2-Ethernet0/0
+  - id: l5
+    n1: n5
+    n2: n4
+    i1: i5
+    i2: i1
+    conditioning: {}
+    label: MGMT-port5<->H-Ethernet0/0
+  - id: l6
+    n1: n2
+    n2: n0
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: L1-Ethernet0/1<->S1-Ethernet0/1
+  - id: l7
+    n1: n3
+    n2: n1
+    i1: i3
+    i2: i3
+    conditioning: {}
+    label: L2-Ethernet0/2<->S2-Ethernet0/2
+  - id: l8
+    n1: n2
+    n2: n1
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: L1-Ethernet0/2<->S2-Ethernet0/1
+  - id: l9
+    n1: n0
+    n2: n3
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: S1-Ethernet0/2<->L2-Ethernet0/1
+  - id: l10
+    n1: n4
+    n2: n2
+    i1: i2
+    i2: i4
+    conditioning: {}
+    label: H-Ethernet0/1<->L1-Ethernet0/3
+  - id: l11
+    n1: n4
+    n2: n3
+    i1: i3
+    i2: i4
+    conditioning: {}
+    label: H-Ethernet0/2<->L2-Ethernet0/3
+lab:
+  description: ''
+  notes: ''
+  title: cml-iol-evpn-vxlan
+  version: 0.3.0
